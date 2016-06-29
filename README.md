@@ -10,6 +10,9 @@ My personal notes ;)
 
 ```
 go get github.com/reekoheek/go-wiki
+mkdir new-wiki-dir
+cd new-wiki-dir
+go-wiki
 ```
 
 ## Compile bindata
