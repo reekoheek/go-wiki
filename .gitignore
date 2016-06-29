@@ -1,0 +1,4 @@
+*.sublime-*
+.gopath
+.DS_Store
+wiki

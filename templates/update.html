@@ -1,0 +1,17 @@
+<form method="POST">
+  <div class="form-group">
+    <textarea id="markdownContent" name="content" cols="30" rows="10" class="form-control">{{ .content }}</textarea>
+  </div>
+
+  <input type="submit" class="btn btn-default" value="Save">
+</form>
+
+<link rel="stylesheet" href="/simplemde/simplemde.min.css">
+<script src="/simplemde/simplemde.min.js"></script>
+<script>
+(function() {
+  'use strict';
+
+  var simplemde = new SimpleMDE({ element: document.getElementById('markdownContent') });
+})();
+</script>
