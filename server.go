@@ -34,7 +34,6 @@ func (s *Server) UseStaticMiddleware(path string) error {
 				c.Response.Writer.Header().Set("Content-Type", contentType)
 			}
 
-			log.Println(filename)
 			content, err := Asset(filename)
 			if err != nil {
 				return err
