@@ -7,12 +7,6 @@ import (
 	"gopkg.in/urfave/cli.v2"
 )
 
-var (
-	DEBUG bool
-	DATA  string
-	ADDR  string
-)
-
 func main() {
 	tool := &Tool{}
 

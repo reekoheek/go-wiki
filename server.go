@@ -16,11 +16,12 @@ import (
 
 type Server struct {
 	*bono.App
+	debug   bool
 	dataDir string
 }
 
 func (s *Server) UseStaticMiddleware(path string) error {
-	if os.Getenv("DEBUG") == "" {
+	if !s.debug {
 		s.Use(func(c *bono.Context, next bono.Next) error {
 			filename := "www" + c.Request.URL.Path
 			_, err := AssetInfo(filename)
@@ -33,6 +34,7 @@ func (s *Server) UseStaticMiddleware(path string) error {
 				c.Response.Writer.Header().Set("Content-Type", contentType)
 			}
 
+			log.Println(filename)
 			content, err := Asset(filename)
 			if err != nil {
 				return err
@@ -79,9 +81,14 @@ func (s *Server) UseMainHandler() error {
 }
 
 func NewServer(dataDir string) (*Server, error) {
+	debug := true
+	if os.Getenv("DEBUG") == "" {
+		debug = false
+	}
 	server := &Server{
 		App:     bono.New(),
 		dataDir: dataDir,
+		debug:   debug,
 	}
 
 	if err := server.UseStaticMiddleware("www"); err != nil {
@@ -113,14 +120,17 @@ func (s *Server) showIndex(c *bono.Context, next bono.Next) error {
 	dataDirStrLen := len(s.dataDir)
 	filepath.Walk(s.dataDir, func(path string, info os.FileInfo, err error) error {
 		if !info.IsDir() && strings.HasSuffix(path, ".md") && !strings.HasSuffix(path, "/index.md") {
-			file := path[dataDirStrLen:]
+			file := path
+			if s.dataDir != "." {
+				file = file[dataDirStrLen:]
+			}
 			file = file[0 : len(file)-3]
 			files = append(files, file)
 		}
 		return nil
 	})
 
-	body, err := render(c, "index", struct {
+	body, err := s.render(c, "index", struct {
 		Files []string
 	}{
 		Files: files,
@@ -141,7 +151,7 @@ func (s *Server) showContent(c *bono.Context, next bono.Next) error {
 
 	markdown := blackfriday.MarkdownCommon(content)
 
-	body, err := render(c, "read", struct {
+	body, err := s.render(c, "read", struct {
 		Content template.HTML
 	}{
 		Content: template.HTML(string(markdown)),
@@ -166,7 +176,7 @@ func (s *Server) updateContent(c *bono.Context, next bono.Next) error {
 
 	c.Set("success", "Content saved")
 
-	body, err := render(c, "update", struct {
+	body, err := s.render(c, "update", struct {
 		Content string
 	}{
 		Content: content,
@@ -182,7 +192,7 @@ func (s *Server) updateContent(c *bono.Context, next bono.Next) error {
 func (s *Server) updateContentForm(c *bono.Context, next bono.Next) error {
 	contentByte, _ := ioutil.ReadFile(s.getMarkdownFile(c.Request.URL.Path))
 
-	body, err := render(c, "update", struct {
+	body, err := s.render(c, "update", struct {
 		Content string
 	}{
 		Content: string(contentByte),
@@ -194,7 +204,7 @@ func (s *Server) updateContentForm(c *bono.Context, next bono.Next) error {
 	return nil
 }
 
-func render(c *bono.Context, name string, data interface{}, _withLayout ...bool) ([]byte, error) {
+func (s *Server) render(c *bono.Context, name string, data interface{}, _withLayout ...bool) ([]byte, error) {
 	withLayout := true
 	if len(_withLayout) > 0 {
 		withLayout = _withLayout[0]
@@ -203,7 +213,7 @@ func render(c *bono.Context, name string, data interface{}, _withLayout ...bool)
 	innerName := name
 	innerData := data
 	if withLayout {
-		body, err := render(c, innerName, innerData, false)
+		body, err := s.render(c, innerName, innerData, false)
 		if err != nil {
 			return nil, err
 		}
@@ -224,10 +234,10 @@ func render(c *bono.Context, name string, data interface{}, _withLayout ...bool)
 	var content []byte
 	var err error
 
-	if DEBUG {
-		content, err = Asset(filename)
-	} else {
+	if s.debug {
 		content, err = ioutil.ReadFile(filename)
+	} else {
+		content, err = Asset(filename)
 	}
 	if err != nil {
 		return nil, err
