@@ -1,0 +1,7 @@
+pre-build:
+  - ["go-bindata", "-ignore", "[.]DS_Store", "www/...", "templates/..."]
+  #- ["cp", "bindata.go", "../../.."]
+
+dependencies:
+  - github.com/russross/blackfriday
+  - gopkg.in/urfave/cli.v2
