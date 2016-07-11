@@ -50,6 +50,9 @@ func (s *Server) UseStaticMiddleware(path string) error {
 
 func (s *Server) UseLogMiddleware() error {
 	s.Use(func(c *bono.Context, next bono.Next) error {
+		if c.Request.URL.Path == "/favicon.ico" {
+			return nil
+		}
 		log.Printf("%s %s", c.Request.Method, c.Request.RequestURI)
 		return next()
 	})
