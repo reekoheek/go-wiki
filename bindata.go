@@ -97,7 +97,7 @@ func wwwBootstrapCssBootstrapThemeMinCss() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "www/bootstrap/css/bootstrap-theme.min.css", size: 23358, mode: os.FileMode(420), modTime: time.Unix(1468234122, 0)}
+	info := bindataFileInfo{name: "www/bootstrap/css/bootstrap-theme.min.css", size: 23358, mode: os.FileMode(420), modTime: time.Unix(1468235425, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -117,7 +117,7 @@ func wwwBootstrapCssBootstrapMinCss() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "www/bootstrap/css/bootstrap.min.css", size: 121215, mode: os.FileMode(420), modTime: time.Unix(1468234122, 0)}
+	info := bindataFileInfo{name: "www/bootstrap/css/bootstrap.min.css", size: 121215, mode: os.FileMode(420), modTime: time.Unix(1468235425, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -137,7 +137,7 @@ func wwwBootstrapFontsGlyphiconsHalflingsRegularEot() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "www/bootstrap/fonts/glyphicons-halflings-regular.eot", size: 20127, mode: os.FileMode(420), modTime: time.Unix(1468234122, 0)}
+	info := bindataFileInfo{name: "www/bootstrap/fonts/glyphicons-halflings-regular.eot", size: 20127, mode: os.FileMode(420), modTime: time.Unix(1468235425, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -157,7 +157,7 @@ func wwwBootstrapFontsGlyphiconsHalflingsRegularSvg() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "www/bootstrap/fonts/glyphicons-halflings-regular.svg", size: 108738, mode: os.FileMode(420), modTime: time.Unix(1468234122, 0)}
+	info := bindataFileInfo{name: "www/bootstrap/fonts/glyphicons-halflings-regular.svg", size: 108738, mode: os.FileMode(420), modTime: time.Unix(1468235425, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -177,7 +177,7 @@ func wwwBootstrapFontsGlyphiconsHalflingsRegularTtf() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "www/bootstrap/fonts/glyphicons-halflings-regular.ttf", size: 45404, mode: os.FileMode(420), modTime: time.Unix(1468234122, 0)}
+	info := bindataFileInfo{name: "www/bootstrap/fonts/glyphicons-halflings-regular.ttf", size: 45404, mode: os.FileMode(420), modTime: time.Unix(1468235425, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -197,7 +197,7 @@ func wwwBootstrapFontsGlyphiconsHalflingsRegularWoff() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "www/bootstrap/fonts/glyphicons-halflings-regular.woff", size: 23424, mode: os.FileMode(420), modTime: time.Unix(1468234122, 0)}
+	info := bindataFileInfo{name: "www/bootstrap/fonts/glyphicons-halflings-regular.woff", size: 23424, mode: os.FileMode(420), modTime: time.Unix(1468235425, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -217,7 +217,7 @@ func wwwBootstrapFontsGlyphiconsHalflingsRegularWoff2() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "www/bootstrap/fonts/glyphicons-halflings-regular.woff2", size: 18028, mode: os.FileMode(420), modTime: time.Unix(1468234122, 0)}
+	info := bindataFileInfo{name: "www/bootstrap/fonts/glyphicons-halflings-regular.woff2", size: 18028, mode: os.FileMode(420), modTime: time.Unix(1468235425, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -237,7 +237,7 @@ func wwwBootstrapJsBootstrapMinJs() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "www/bootstrap/js/bootstrap.min.js", size: 36868, mode: os.FileMode(420), modTime: time.Unix(1468234122, 0)}
+	info := bindataFileInfo{name: "www/bootstrap/js/bootstrap.min.js", size: 36868, mode: os.FileMode(420), modTime: time.Unix(1468235425, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -257,7 +257,7 @@ func wwwJqueryJqueryMinJs() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "www/jquery/jquery.min.js", size: 85578, mode: os.FileMode(420), modTime: time.Unix(1468234122, 0)}
+	info := bindataFileInfo{name: "www/jquery/jquery.min.js", size: 85578, mode: os.FileMode(420), modTime: time.Unix(1468235425, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -277,7 +277,7 @@ func wwwSimplemdeSimplemdeMinCss() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "www/simplemde/simplemde.min.css", size: 10929, mode: os.FileMode(420), modTime: time.Unix(1468234122, 0)}
+	info := bindataFileInfo{name: "www/simplemde/simplemde.min.css", size: 10929, mode: os.FileMode(420), modTime: time.Unix(1468235425, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -297,7 +297,7 @@ func wwwSimplemdeSimplemdeMinJs() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "www/simplemde/simplemde.min.js", size: 269308, mode: os.FileMode(420), modTime: time.Unix(1468234122, 0)}
+	info := bindataFileInfo{name: "www/simplemde/simplemde.min.js", size: 269308, mode: os.FileMode(420), modTime: time.Unix(1468235425, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -317,7 +317,7 @@ func templatesIndexHtml() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/index.html", size: 75, mode: os.FileMode(420), modTime: time.Unix(1468234122, 0)}
+	info := bindataFileInfo{name: "templates/index.html", size: 75, mode: os.FileMode(420), modTime: time.Unix(1468235425, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -337,7 +337,7 @@ func templatesLayoutHtml() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/layout.html", size: 2532, mode: os.FileMode(420), modTime: time.Unix(1468234122, 0)}
+	info := bindataFileInfo{name: "templates/layout.html", size: 2532, mode: os.FileMode(420), modTime: time.Unix(1468235425, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -357,7 +357,7 @@ func templatesReadHtml() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/read.html", size: 15, mode: os.FileMode(420), modTime: time.Unix(1468234122, 0)}
+	info := bindataFileInfo{name: "templates/read.html", size: 15, mode: os.FileMode(420), modTime: time.Unix(1468235425, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
@@ -377,7 +377,7 @@ func templatesUpdateHtml() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "templates/update.html", size: 503, mode: os.FileMode(420), modTime: time.Unix(1468234122, 0)}
+	info := bindataFileInfo{name: "templates/update.html", size: 503, mode: os.FileMode(420), modTime: time.Unix(1468235425, 0)}
 	a := &asset{bytes: bytes, info: info}
 	return a, nil
 }
