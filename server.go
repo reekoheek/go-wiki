@@ -68,18 +68,27 @@ func (s *Server) UseMainHandler() error {
 	})
 
 	s.Use(func(c *bono.Context, next bono.Next) error {
-		if c.Request.URL.Query().Get("update") == "" {
-			return s.showContent(c, next)
-		} else {
+		action := c.Request.URL.Query().Get("do")
+		switch action {
+		case "update":
 			if c.Request.Method == "POST" {
 				return s.updateContent(c, next)
 			} else {
 				return s.updateContentForm(c, next)
 			}
+		case "delete":
+			return s.deleteContent(c, next)
+		default:
+			return s.showContent(c, next)
 		}
-		return nil
 	})
+
 	return nil
+}
+
+func (s *Server) deleteContent(c *bono.Context, next bono.Next) error {
+	os.Remove(s.getMarkdownFile(c.Request.URL.Path))
+	return c.Redirect("/index")
 }
 
 func NewServer(dataDir string) (*Server, error) {
@@ -148,7 +157,7 @@ func (s *Server) showIndex(c *bono.Context, next bono.Next) error {
 func (s *Server) showContent(c *bono.Context, next bono.Next) error {
 	content, err := ioutil.ReadFile(s.getMarkdownFile(c.Request.URL.Path))
 	if err != nil {
-		return c.Redirect("?update=true")
+		return c.Redirect("?do=update")
 	}
 
 	markdown := blackfriday.MarkdownCommon(content)
@@ -264,11 +273,11 @@ func (s *Server) render(c *bono.Context, name string, data interface{}, _withLay
 	}
 
 	helperIsRead := func() bool {
-		return c.Request.URL.Query().Get("update") == ""
+		return c.Request.URL.Query().Get("do") == ""
 	}
 
 	helperIsUpdate := func() bool {
-		return c.Request.URL.Query().Get("update") != ""
+		return c.Request.URL.Query().Get("do") == "update"
 	}
 
 	t, err := template.New(name).Funcs(template.FuncMap{

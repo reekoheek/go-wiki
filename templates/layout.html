@@ -45,7 +45,8 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li class='{{if isRead }}active{{end}}'><a href="{{uri}}">Read</a></li>
-            <li class='{{if isUpdate }}active{{end}}'><a href="{{uri}}?update=true">Update</a></li>
+            <li class='{{if isUpdate }}active{{end}}'><a href="{{uri}}?do=update">Update</a></li>
+            <li><a href="{{uri}}?do=delete" class="doDelete">Delete</a></li>
           </ul>
         </div>
       </div>
@@ -64,5 +65,18 @@
     <script src="/jquery/jquery.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="/bootstrap/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" charset="utf-8">
+    (function() {
+      'use strict';
+
+      $('.doDelete').on('click', function(evt) {
+        var result = confirm("Are you sure?");
+        if (!result) {
+          evt.preventDefault();
+        }
+      });
+    })();
+    </script>
   </body>
 </html>
